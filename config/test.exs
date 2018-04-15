@@ -12,8 +12,8 @@ config :logger, level: :warn
 # Configure your database
 config :calculator, Calculator.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
-  database: "calculator_test",
+  username: "hello_db_user",
+  password: "password",
+  database: "hello_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox

@@ -20,7 +20,9 @@ defmodule CalculatorWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", CalculatorWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", CalculatorWeb do
+    pipe_through :api
+
+    get "/calculate", CalculatorController, :index
+  end
 end

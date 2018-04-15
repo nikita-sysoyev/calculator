@@ -1,0 +1,2 @@
+p Hi!
+p= Enum.map(@rates, fn {k, v} -> "#{k} --> #{v.value}" end)

@@ -20,12 +20,12 @@ defmodule Calculator.Mixfile do
   def application do
     [
       mod: {Calculator.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:ex_machina, :timex_ecto, :logger, :runtime_tools]
     ]
   end
 
   # Specifies which paths to compile per environment.
-  defp elixirc_paths(:test), do: ["lib", "test/support"]
+  defp elixirc_paths(:test), do: ["lib", "web", "test/support", "test/factories"]
   defp elixirc_paths(_),     do: ["lib"]
 
   # Specifies your project dependencies.
@@ -40,7 +40,12 @@ defmodule Calculator.Mixfile do
       {:phoenix_html, "~> 2.10"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:gettext, "~> 0.11"},
-      {:cowboy, "~> 1.0"}
+      {:cowboy, "~> 1.0"},
+      {:phoenix_slime, "~> 0.9.0"},
+      {:httpoison, "~> 1.0"},
+      {:timex, "~> 3.0"},
+      {:timex_ecto, "~> 3.0"},
+      {:ex_machina, "~> 2.2"}
     ]
   end
 

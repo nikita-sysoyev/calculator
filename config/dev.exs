@@ -51,8 +51,18 @@ config :phoenix, :stacktrace_depth, 20
 # Configure your database
 config :calculator, Calculator.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
-  database: "calculator_dev",
+  username: "hello_db_user",
+  password: "password",
+  database: "hello_dev",
   hostname: "localhost",
   pool_size: 10
+
+# Watch static and templates for browser reloading.
+config :calculator, MyApp.Endpoint,
+  live_reload: [
+    patterns: [
+      ~r{priv/static/.*(js|css|png|jpeg|jpg|gif)$},
+      ~r{web/views/.*(ex)$},
+      ~r{web/templates/.*(eex|slim|slime)$}
+    ]
+  ]
