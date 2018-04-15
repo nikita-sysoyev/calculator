@@ -8,7 +8,7 @@ defmodule CalculatorWeb.CalculatorController do
     currency = Repo.get_by(Currency, %{code: params["currency"]})
 
     unless currency do
-      json conn, %{ errors: "wrong currency code" }
+      conn |> put_status(500) |> json %{ errors: "wrong currency code" }
     end
 
     t = params["time"] || (Ecto.Time.utc |> Ecto.Time.to_string)
@@ -19,7 +19,7 @@ defmodule CalculatorWeb.CalculatorController do
      |> Repo.one!
 
     unless rate do
-      json conn, %{ errors: "rate data unavailable" }
+      conn |> put_status(500) |> json %{ errors: "rate data unavailable" }
     end
 
     {value, _} = Float.parse(params["value"])
