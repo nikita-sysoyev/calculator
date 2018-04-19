@@ -1,2 +1,1 @@
-p Hi!
-p= Enum.map(@rates, fn {k, v} -> "#{k} --> #{v.value}" end)
+p= Enum.map(@rates, fn {k, v} -> raw("#{k}: #{v.value}<br/>") end)
